@@ -2,6 +2,45 @@
 using ScreenSound.Menus;
 using ScreenSound.Modelos;
 
+
+using (var dal = new MusicaDAL())
+{
+    foreach(var musica in dal.ListarMusicas())
+    {
+        Console.WriteLine(musica);
+        Console.WriteLine("------------");
+    }
+
+    var newMusica = new Musica("The Taste of Cockroach");
+    var newMusic2 = new Musica("Placeholder song");
+    dal.AdicionarMusicas(newMusica);
+    dal.AdicionarMusicas(newMusic2);
+    foreach (var musica in dal.ListarMusicas())
+    {
+        Console.WriteLine(musica);
+        Console.WriteLine("------------");
+    }
+
+    newMusic2.Nome = "Magical Doctor";
+    dal.AtualizarMusicas(newMusic2);
+    foreach (var musica in dal.ListarMusicas())
+    {
+        Console.WriteLine(musica);
+        Console.WriteLine("------------");
+    }
+
+    dal.DeletarMusicas(newMusic2);
+    dal.DeletarMusicas(newMusica);
+
+    foreach (var musica in dal.ListarMusicas())
+    {
+        Console.WriteLine(musica);
+        Console.WriteLine("------------");
+    }
+}
+
+return;
+
 Dictionary<int, Menu> opcoes = [];
 
 using (var db = new ScreenSoundContext())

@@ -14,7 +14,8 @@ internal class MenuMostrarArtistas(ScreenSoundContext context) : Menu(context)
 
         foreach (var artista in dal.ListarArtistas())
         {
-            Console.WriteLine($"Artista: {artista.Nome}");
+            Console.WriteLine($"Artista: {artista}");
+            Console.WriteLine("------------------");
         }
 
         Console.WriteLine("\nDigite uma tecla para voltar ao menu principal");
