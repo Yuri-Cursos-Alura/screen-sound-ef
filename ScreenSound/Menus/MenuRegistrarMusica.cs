@@ -12,7 +12,7 @@ internal class MenuRegistrarMusica(ScreenSoundContext context) : Menu(context)
         ExibirTituloDaOpcao("Registro de músicas");
         Console.Write("Digite o artista cuja música deseja registrar: ");
         string nomeDoArtista = Console.ReadLine()!;
-        var dbArtista = dal.GetArtista(nomeDoArtista);
+        var dbArtista = dal.GetSingle(nomeDoArtista);
 
         if (dbArtista is not null)
         {

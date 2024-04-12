@@ -12,7 +12,7 @@ internal class MenuMostrarMusicas(ScreenSoundContext context) : Menu(context)
         ExibirTituloDaOpcao("Exibir detalhes do artista");
         Console.Write("Digite o nome do artista que deseja conhecer melhor: ");
         string nomeDoArtista = Console.ReadLine()!;
-        var dbArtista = dal.GetArtista(nomeDoArtista);
+        var dbArtista = dal.GetSingle(nomeDoArtista);
         if (dbArtista is not null)
         {
             Console.WriteLine("\nDiscografia:");

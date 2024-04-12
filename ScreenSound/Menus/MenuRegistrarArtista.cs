@@ -15,7 +15,7 @@ internal class MenuRegistrarArtista(ScreenSoundContext context) : Menu(context)
         Console.Write("Digite a bio do artista que deseja registrar: ");
         string bioDoArtista = Console.ReadLine()!;
         Artista artista = new(nomeDoArtista, bioDoArtista);
-        dal.AdicionarArtista(artista);
+        dal.Add(artista);
         Console.WriteLine($"O artista {nomeDoArtista} foi registrado com sucesso!");
         Thread.Sleep(4000);
         Console.Clear();

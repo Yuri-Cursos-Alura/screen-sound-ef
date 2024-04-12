@@ -12,7 +12,7 @@ internal class MenuMostrarArtistas(ScreenSoundContext context) : Menu(context)
 
         ExibirTituloDaOpcao("Exibindo todos os artistas registradas na nossa aplicação");
 
-        foreach (var artista in dal.ListarArtistas())
+        foreach (var artista in dal.GetAll())
         {
             Console.WriteLine($"Artista: {artista}");
             Console.WriteLine("------------------");

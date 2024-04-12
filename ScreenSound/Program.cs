@@ -5,7 +5,7 @@ using ScreenSound.Modelos;
 
 using (var dal = new MusicaDAL())
 {
-    foreach(var musica in dal.ListarMusicas())
+    foreach(var musica in dal.GetAll())
     {
         Console.WriteLine(musica);
         Console.WriteLine("------------");
@@ -13,26 +13,26 @@ using (var dal = new MusicaDAL())
 
     var newMusica = new Musica("The Taste of Cockroach");
     var newMusic2 = new Musica("Placeholder song");
-    dal.AdicionarMusicas(newMusica);
-    dal.AdicionarMusicas(newMusic2);
-    foreach (var musica in dal.ListarMusicas())
+    dal.Add(newMusica);
+    dal.Add(newMusic2);
+    foreach (var musica in dal.GetAll())
     {
         Console.WriteLine(musica);
         Console.WriteLine("------------");
     }
 
     newMusic2.Nome = "Magical Doctor";
-    dal.AtualizarMusicas(newMusic2);
-    foreach (var musica in dal.ListarMusicas())
+    dal.Update(newMusic2);
+    foreach (var musica in dal.GetAll())
     {
         Console.WriteLine(musica);
         Console.WriteLine("------------");
     }
 
-    dal.DeletarMusicas(newMusic2);
-    dal.DeletarMusicas(newMusica);
+    dal.Remove(newMusic2);
+    dal.Remove(newMusica);
 
-    foreach (var musica in dal.ListarMusicas())
+    foreach (var musica in dal.GetAll())
     {
         Console.WriteLine(musica);
         Console.WriteLine("------------");
