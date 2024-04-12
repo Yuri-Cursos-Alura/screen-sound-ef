@@ -11,6 +11,20 @@ try
     //ArtistaDAL.AtualizarArtista("Yuri legal", "Uma bio muito foda", 10);
 
     //ArtistaDAL.DeletarArtista(10);
+
+    using (var dal = new ArtistaDAL())
+    {
+        var artista = new Artista("Alec", "Um cara muito, muito, muito legal!") { FotoPerfil = "Alec.png", Id = 1002 };
+
+        //dal.AdicionarArtista(artista);
+
+        dal.AtualizarArtista(artista);
+
+        List<Artista> allArtistas = dal.ListarArtistas();
+
+        foreach (var art in allArtistas)
+            Console.WriteLine(art);
+    }
 }
 catch(Exception ex)
 {
