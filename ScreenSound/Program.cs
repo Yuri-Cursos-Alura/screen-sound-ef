@@ -3,7 +3,7 @@ using ScreenSound.Menus;
 using ScreenSound.Modelos;
 
 
-using (var dal = new MusicaDAL())
+using (var dal = new DAL<Musica>())
 {
     foreach(var musica in dal.GetAll())
     {

@@ -7,12 +7,12 @@ internal class MenuRegistrarMusica(ScreenSoundContext context) : Menu(context)
 {
     public override void Executar()
     {
-        var dal = new ArtistaDAL(_context);
+        var dal = new DAL<Artista>(_context);
 
         ExibirTituloDaOpcao("Registro de músicas");
         Console.Write("Digite o artista cuja música deseja registrar: ");
         string nomeDoArtista = Console.ReadLine()!;
-        var dbArtista = dal.GetSingle(nomeDoArtista);
+        var dbArtista = dal.GetSingle(a => a.Nome.Equals(nomeDoArtista));
 
         if (dbArtista is not null)
         {

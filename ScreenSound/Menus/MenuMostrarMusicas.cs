@@ -7,12 +7,12 @@ internal class MenuMostrarMusicas(ScreenSoundContext context) : Menu(context)
 {
     public override void Executar()
     {
-        var dal = new ArtistaDAL(_context);
+        var dal = new DAL<Artista>(_context);
 
         ExibirTituloDaOpcao("Exibir detalhes do artista");
         Console.Write("Digite o nome do artista que deseja conhecer melhor: ");
         string nomeDoArtista = Console.ReadLine()!;
-        var dbArtista = dal.GetSingle(nomeDoArtista);
+        var dbArtista = dal.GetSingle(a => a.Nome.Equals(nomeDoArtista));
         if (dbArtista is not null)
         {
             Console.WriteLine("\nDiscografia:");

@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ScreenSound.Banco;
-internal abstract class DAL<TEntity> : IDisposable where TEntity : class
+internal class DAL<TEntity> : IDisposable where TEntity : class
 {
     protected readonly ScreenSoundContext _context;
     private readonly DbSet<TEntity> _dbSet;
@@ -59,5 +59,6 @@ internal abstract class DAL<TEntity> : IDisposable where TEntity : class
         _context.SaveChanges();
     }
     public virtual IEnumerable<TEntity> GetAll() => _dbSet;
+    public virtual TEntity GetSingle(Func<TEntity, bool> func) => _dbSet.First(func);
 
 }

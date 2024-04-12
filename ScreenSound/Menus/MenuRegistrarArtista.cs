@@ -7,7 +7,7 @@ internal class MenuRegistrarArtista(ScreenSoundContext context) : Menu(context)
 {
     public override void Executar()
     {
-        var dal = new ArtistaDAL(_context);
+        var dal = new DAL<Artista>(_context);
 
         ExibirTituloDaOpcao("Registro dos Artistas");
         Console.Write("Digite o nome do artista que deseja registrar: ");

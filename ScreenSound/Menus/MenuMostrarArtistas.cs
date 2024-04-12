@@ -8,7 +8,7 @@ internal class MenuMostrarArtistas(ScreenSoundContext context) : Menu(context)
 
     public override void Executar()
     {
-        var dal = new ArtistaDAL(_context);
+        var dal = new DAL<Artista>(_context);
 
         ExibirTituloDaOpcao("Exibindo todos os artistas registradas na nossa aplicação");
 
