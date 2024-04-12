@@ -1,9 +1,11 @@
-﻿using ScreenSound.Modelos;
+﻿using ScreenSound.Banco;
+using ScreenSound.Modelos;
 
 namespace ScreenSound.Menus;
 
-internal class Menu
+internal class Menu(ScreenSoundContext context)
 {
+    protected ScreenSoundContext _context = context;
     public void ExibirTituloDaOpcao(string titulo)
     {
         int quantidadeDeLetras = titulo.Length;
@@ -12,7 +14,7 @@ internal class Menu
         Console.WriteLine(titulo);
         Console.WriteLine(asteriscos + "\n");
     }
-    public virtual void Executar(Dictionary<string, Artista> nusicasRegistradas)
+    public virtual void Executar()
     {
         Console.Clear();
     }

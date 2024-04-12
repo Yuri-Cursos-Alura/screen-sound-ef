@@ -36,4 +36,6 @@ internal class ArtistaDAL(ScreenSoundContext? context = null) : IDisposable
         _context.Artistas.Update(artistaAdd);
         _context.SaveChanges();
     }
+
+    public Artista? GetArtista(string nome) => _context.Artistas.FirstOrDefault(a => a.Nome.Equals(nome));
 }
