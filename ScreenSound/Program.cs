@@ -1,19 +1,39 @@
-﻿using ScreenSound.Menus;
+﻿using ScreenSound.Banco;
+using ScreenSound.Menus;
 using ScreenSound.Modelos;
 
-Artista ira = new Artista("Ira!", "Banda Ira!");
+try
+{
+    //var novoArtista = new Artista("Yuri", "Um cara muito foda, cara.") { FotoPerfil = "teste.png" };
+
+    //ArtistaDAL.AdicionarArtista(novoArtista);
+
+    //ArtistaDAL.AtualizarArtista("Yuri legal", "Uma bio muito foda", 10);
+
+    //ArtistaDAL.DeletarArtista(10);
+}
+catch(Exception ex)
+{
+    Console.WriteLine(ex.ToString());
+}
+
+return;
+
+Artista ira = new("Ira!", "Banda Ira!");
 Artista beatles = new("The Beatles", "Banda The Beatles");
 
-Dictionary<string, Artista> artistasRegistrados = new();
+Dictionary<string, Artista> artistasRegistrados = [];
 artistasRegistrados.Add(ira.Nome, ira);
 artistasRegistrados.Add(beatles.Nome, beatles);
 
-Dictionary<int, Menu> opcoes = new();
+Dictionary<int, Menu> opcoes = [];
 opcoes.Add(1, new MenuRegistrarArtista());
 opcoes.Add(2, new MenuRegistrarMusica());
 opcoes.Add(3, new MenuMostrarArtistas());
 opcoes.Add(4, new MenuMostrarMusicas());
 opcoes.Add(-1, new MenuSair());
+
+ExibirOpcoesDoMenu();
 
 void ExibirLogo()
 {
@@ -54,4 +74,3 @@ void ExibirOpcoesDoMenu()
     }
 }
 
-ExibirOpcoesDoMenu();

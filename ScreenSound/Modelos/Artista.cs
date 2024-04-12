@@ -2,7 +2,7 @@
 
 internal class Artista 
 {
-    private List<Musica> musicas = new List<Musica>();
+    private readonly List<Musica> musicas = [];
 
     public Artista(string nome, string bio)
     {
@@ -33,8 +33,8 @@ internal class Artista
     public override string ToString()
     {
         return $@"Id: {Id}
-            Nome: {Nome}
-            Foto de Perfil: {FotoPerfil}
-            Bio: {Bio}";
+Nome: {Nome}
+Foto de Perfil: {FotoPerfil}
+Bio: {Bio}";
     }
 }
