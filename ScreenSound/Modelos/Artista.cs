@@ -1,8 +1,19 @@
-﻿namespace ScreenSound.Modelos; 
+﻿using System.ComponentModel.DataAnnotations;
 
-internal class Artista 
+namespace ScreenSound.Modelos;
+
+internal class Artista
 {
-    private readonly List<Musica> musicas = [];
+    [Required]
+    public int Id { get; set; }
+    [Required]
+    public string Nome { get; set; }
+    [Required]
+    public string FotoPerfil { get; set; }
+    [Required]
+    public string Bio { get; set; }
+
+    private ICollection<Musica> Musicas { get; set; } = [];
 
     public Artista(string nome, string bio)
     {
@@ -11,20 +22,15 @@ internal class Artista
         FotoPerfil = "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png";
     }
 
-    public string Nome { get; set; }
-    public string FotoPerfil { get; set; }
-    public string Bio { get; set; }
-    public int Id { get; set; }
-
     public void AdicionarMusica(Musica musica)
     {
-        musicas.Add(musica);
+        Musicas.Add(musica);
     }
 
     public void ExibirDiscografia()
     {
         Console.WriteLine($"Discografia do artista {Nome}");
-        foreach (var musica in musicas)
+        foreach (var musica in Musicas)
         {
             Console.WriteLine($"Música: {musica.Nome}");
         }
