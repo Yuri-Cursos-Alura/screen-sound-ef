@@ -18,7 +18,10 @@ internal class MenuRegistrarMusica(ScreenSoundContext context) : Menu(context)
         {
             Console.Write("Agora digite o título da música: ");
             string tituloDaMusica = Console.ReadLine()!;
-            dbArtista.AdicionarMusica(new Musica(tituloDaMusica));
+            Console.Write("Agora digite o ano de lançamento da música: ");
+            string ano = Console.ReadLine()!;
+            dbArtista.AdicionarMusica(new Musica(tituloDaMusica) { AnoLancamento = int.Parse(ano) });
+            dal.Update(dbArtista);
             Console.WriteLine($"A música {tituloDaMusica} de {nomeDoArtista} foi registrada com sucesso!");
             Thread.Sleep(4000);
             Console.Clear();

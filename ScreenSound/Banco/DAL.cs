@@ -59,6 +59,6 @@ internal class DAL<TEntity> : IDisposable where TEntity : class
         _context.SaveChanges();
     }
     public virtual IEnumerable<TEntity> GetAll() => _dbSet;
-    public virtual TEntity GetSingle(Func<TEntity, bool> func) => _dbSet.First(func);
+    public virtual TEntity? GetSingle(Func<TEntity, bool> func) => _dbSet.FirstOrDefault(func);
 
 }

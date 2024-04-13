@@ -18,6 +18,9 @@ namespace ScreenSound.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "8.0.4")
+                .HasAnnotation("Proxies:ChangeTracking", false)
+                .HasAnnotation("Proxies:CheckEquality", false)
+                .HasAnnotation("Proxies:LazyLoading", true)
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -75,12 +78,17 @@ namespace ScreenSound.Migrations
             modelBuilder.Entity("ScreenSound.Modelos.Musica", b =>
                 {
                     b.HasOne("ScreenSound.Modelos.Artista", "Artista")
-                        .WithMany()
+                        .WithMany("Musicas")
                         .HasForeignKey("ArtistaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Artista");
+                });
+
+            modelBuilder.Entity("ScreenSound.Modelos.Artista", b =>
+                {
+                    b.Navigation("Musicas");
                 });
 #pragma warning restore 612, 618
         }

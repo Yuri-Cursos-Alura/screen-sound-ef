@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 namespace ScreenSound.Modelos;
 
-internal class Musica
+public class Musica
 {
     [Required]
     public int Id { get; set; }
@@ -11,7 +11,7 @@ internal class Musica
     public int? AnoLancamento { get; set; }
 
     [Required]
-    public Artista? Artista { get; set; }
+    public virtual Artista? Artista { get; set; }
 
     public Musica(string nome)
     {
