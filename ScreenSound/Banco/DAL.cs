@@ -60,5 +60,6 @@ internal class DAL<TEntity> : IDisposable where TEntity : class
     }
     public virtual IEnumerable<TEntity> GetAll() => _dbSet;
     public virtual TEntity? GetSingle(Func<TEntity, bool> func) => _dbSet.FirstOrDefault(func);
+    public virtual IEnumerable<TEntity> GetMany(Func<TEntity, bool> func) => _dbSet.Where(func);
 
 }
